@@ -115,5 +115,10 @@ build/iOS/deps/*
 !build/iOS/deps/*.sh
 build/iOS/*.zip
 
+build/macOS/Pods
+build/macOS/Podfile.lock
+build/macOS/deps/*
+!build/macOS/deps/*.sh
+
 ## WindowsApp files
 build/WindowsApp/*.zip
