@@ -122,3 +122,4 @@ build/macOS/deps/*
 
 ## WindowsApp files
 build/WindowsApp/*.zip
+build/iOS/assets
