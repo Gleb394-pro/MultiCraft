@@ -17,6 +17,7 @@
 		84463B9724B258B20099DFBD /* Pods_MultiCraft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50555C0ED3309AD5F0B15D19 /* Pods_MultiCraft.framework */; };
 		84463B9924B258B50099DFBD /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84585C0424B134850040BA4F /* OpenGL.framework */; };
 		84463B9B24B258B60099DFBD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84585C0924B134C40040BA4F /* QuartzCore.framework */; };
+		8453A49E24DB22F00087ECF9 /* client in Resources */ = {isa = PBXBuildFile; fileRef = 8453A49D24DB22F00087ECF9 /* client */; };
 		845856B324B1322D0040BA4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845856B224B1322D0040BA4F /* Assets.xcassets */; };
 		845856B624B1322D0040BA4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 845856B424B1322D0040BA4F /* Main.storyboard */; };
 		84585C0724B134900040BA4F /* libcurl.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84585C0624B1348B0040BA4F /* libcurl.tbd */; };
@@ -268,6 +269,7 @@
 		8436294D24B264C300DB1922 /* MessageCatalog.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MessageCatalog.hpp; path = ../../../../lib/intl/MessageCatalog.hpp; sourceTree = "<group>"; };
 		8436294E24B264C300DB1922 /* Util.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Util.hpp; path = ../../../../lib/intl/Util.hpp; sourceTree = "<group>"; };
 		8436295024B2651400DB1922 /* locale */ = {isa = PBXFileReference; lastKnownFileType = folder; name = locale; path = ../../../iOS/assets/locale; sourceTree = "<group>"; };
+		8453A49D24DB22F00087ECF9 /* client */ = {isa = PBXFileReference; lastKnownFileType = folder; name = client; path = ../../../../client; sourceTree = "<group>"; };
 		845856A924B1322C0040BA4F /* MultiCraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiCraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845856B224B1322D0040BA4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845856B524B1322D0040BA4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -365,7 +367,7 @@
 		84585D3024B1391D0040BA4F /* content_mapnode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = content_mapnode.cpp; path = ../../../../src/content_mapnode.cpp; sourceTree = "<group>"; };
 		84585D3124B1391E0040BA4F /* map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = map.cpp; path = ../../../../src/map.cpp; sourceTree = "<group>"; };
 		84585D3224B1391E0040BA4F /* version.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = version.cpp; path = ../../../../src/version.cpp; sourceTree = "<group>"; };
-		84585D3324B1391E0040BA4F /* defaultsettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = defaultsettings.cpp; path = ../../../../src/defaultsettings.cpp; sourceTree = "<group>"; };
+		84585D3324B1391E0040BA4F /* defaultsettings.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = defaultsettings.cpp; path = ../../../../src/defaultsettings.cpp; sourceTree = "<group>"; };
 		84585D3424B1391E0040BA4F /* guiEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = guiEngine.cpp; path = ../../../../src/guiEngine.cpp; sourceTree = "<group>"; };
 		84585D3524B1391E0040BA4F /* mods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mods.h; path = ../../../../src/mods.h; sourceTree = "<group>"; };
 		84585D3624B1391E0040BA4F /* quicktune.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = quicktune.cpp; path = ../../../../src/quicktune.cpp; sourceTree = "<group>"; };
@@ -841,6 +843,7 @@
 			isa = PBXGroup;
 			children = (
 				8458617B24B1C3BB0040BA4F /* builtin */,
+				8453A49D24DB22F00087ECF9 /* client */,
 				8458617A24B1C3BA0040BA4F /* fonts */,
 				8458617924B1C3BA0040BA4F /* games */,
 				8436295024B2651400DB1922 /* locale */,
@@ -1553,6 +1556,7 @@
 				8458617F24B1C3BC0040BA4F /* builtin in Resources */,
 				8458618024B1C3BC0040BA4F /* textures in Resources */,
 				845856B324B1322D0040BA4F /* Assets.xcassets in Resources */,
+				8453A49E24DB22F00087ECF9 /* client in Resources */,
 				845856B624B1322D0040BA4F /* Main.storyboard in Resources */,
 				8458617E24B1C3BC0040BA4F /* fonts in Resources */,
 			);
