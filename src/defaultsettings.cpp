@@ -24,6 +24,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "constants.h"
 #include "util/string.h"
 
+#if defined(__MACH__) && defined(__APPLE__)
+#import <AppKit/AppKit.h>
+#endif
+
 #ifdef __IOS__
 #import <UIKit/UIKit.h>
 #import "SDVersion.h"
@@ -384,6 +388,15 @@ void set_default_settings(Settings *settings) {
 
 	settings->setDefault("mainmenu_last_selected_world", "1");
 
+	// Altered settings for macOS
+#if defined(__MACH__) && defined(__APPLE__)
+		settings->setDefault("keymap_sneak", "KEY_SHIFT");
+		settings->setDefault("fps_max", "0");
+
+		CGFloat ScaleFactor = [[NSScreen mainScreen] backingScaleFactor];
+		settings->setDefault("screen_dpi", std::to_string(72 * ScaleFactor));
+#endif
+
 	// Mobile Platform
 #if defined(__ANDROID__) || defined(__IOS__)
 	settings->setDefault("screenW", "0");
@@ -399,7 +412,6 @@ void set_default_settings(Settings *settings) {
 	settings->setDefault("curl_verify_cert", "false");
 	settings->setDefault("gui_scaling_filter_txr2img", "false");
 	settings->setDefault("autosave_screensize", "false");
-	char lang[3] = {0};
 
 	// Set the optimal settings depending on the memory size [Android] | model [iOS]
 #ifdef __ANDROID__
@@ -479,9 +491,6 @@ void set_default_settings(Settings *settings) {
 	settings->setDefault("mono_font_path", "/system/fonts/DroidSansMono.ttf");
 	settings->setDefault("fallback_font_path", "/system/fonts/DroidSans.ttf");
 
-	// Auto-detect language on Android
-	AConfiguration_getLanguage(porting::app_global->config, lang);
-
 	// Check screen size
 	double x_inches = (double) porting::getDisplaySize().X /
 	                   (160 * porting::getDisplayDensity());
@@ -522,10 +531,6 @@ void set_default_settings(Settings *settings) {
 	// Set font_path
 	settings->setDefault("mono_font_path", g_settings->get("font_path"));
 	settings->setDefault("fallback_font_path", g_settings->get("font_path"));
-
-	// Auto-detect language on iOS
-	NSString *syslang = [[NSLocale preferredLanguages] firstObject];
-	[syslang getBytes:lang maxLength:2 usedLength:nil encoding:NSASCIIStringEncoding options:0 range:NSMakeRange(0, 2) remainingRange:nil];
 
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 		settings->setDefault("hud_small", "true");
@@ -568,6 +573,19 @@ void set_default_settings(Settings *settings) {
 		settings->setDefault("round_screen", "35");
 	}
 #endif // iOS
+#endif
+
+#if defined(__ANDROID__) || defined(__APPLE__)
+	char lang[3] = {0};
+
+#ifdef __ANDROID__
+	// Auto-detect language on Android
+	AConfiguration_getLanguage(porting::app_global->config, lang);
+#else
+	// Auto-detect language on iOS / macOS
+	NSString *syslang = [[NSLocale preferredLanguages] firstObject];
+	[syslang getBytes:lang maxLength:2 usedLength:nil encoding:NSASCIIStringEncoding options:0 range:NSMakeRange(0, 2) remainingRange:nil];
+#endif
 
 	settings->setDefault("language", lang);
 #endif
